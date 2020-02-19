@@ -1,0 +1,9 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net472</TargetFramework>
+        <LangVersion>latest</LangVersion>
+        <OutputType>Exe</OutputType>
+        <AutoVersionDebug>true</AutoVersionDebug>
+    </PropertyGroup>
+    <Import Project="..\AutoVersionTask\Assets\build\AutoVersionTask.targets"/>
+</Project>

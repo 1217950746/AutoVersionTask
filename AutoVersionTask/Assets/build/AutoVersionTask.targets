@@ -1,0 +1,25 @@
+<Project>
+    <PropertyGroup>
+        <AutoVersionTaskFolder>$(MSBuildThisFileDirectory)..\tasks\net472\</AutoVersionTaskFolder>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(AutoVersionDebug) == 'true'">
+        <AutoVersionTaskFolder>$(SolutionDir)AutoVersionTask\bin\Debug\net472\</AutoVersionTaskFolder>
+    </PropertyGroup>
+
+    <UsingTask TaskName="AutoVersionTask" AssemblyFile="$(AutoVersionTaskFolder)AutoVersionTask.dll" />
+    <UsingTask TaskName="UpdateAssemblyInfoTask" AssemblyFile="$(AutoVersionTaskFolder)AutoVersionTask.dll" />
+
+    <Target Name="AutoVersionTask" BeforeTargets="CoreCompile;GetAssemblyVersion;GenerateNuspec">
+        <AutoVersionTask SolutionDir="$(SolutionDir)">
+            <Output TaskParameter="AutoVersion" PropertyName="AutoVersion" />
+            <Output TaskParameter="AutoVersionSuffix" PropertyName="AutoVersionSuffix" />
+            <Output TaskParameter="AutoFullVersion" PropertyName="AutoFullVersion" />
+        </AutoVersionTask>
+        <PropertyGroup>
+            <VersionPrefix>$(AutoVersion)</VersionPrefix>
+            <VersionSuffix>$(AutoVersionSuffix)</VersionSuffix>
+            <Version>$(AutoFullVersion)</Version>
+            <PackageVersion>$(AutoVersion)</PackageVersion>
+        </PropertyGroup>
+    </Target>
+</Project>
