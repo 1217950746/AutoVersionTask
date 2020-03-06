@@ -55,12 +55,14 @@ namespace AutoVersionTask
                 // ignored
             }
 
+            var buildTime = DateTime.Now;
+
             return new CommitInfo
             {
-                Sha = "0000000",
-                Number = 0,
-                BuildNumber = 0,
-                BuildTime = DateTime.Now,
+                Sha = Guid.NewGuid().ToString("N").Substring(0, 7).ToUpper(),
+                Number = buildTime.Minute,
+                BuildNumber = buildTime.Minute,
+                BuildTime = buildTime,
             };
         }
     }

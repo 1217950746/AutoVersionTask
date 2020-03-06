@@ -4,9 +4,11 @@
         <LangVersion>latest</LangVersion>
         <OutputType>Exe</OutputType>
         <AutoVersionDebug>true</AutoVersionDebug>
+        <Configurations>Debug</Configurations>
+        <Platforms>x86</Platforms>
     </PropertyGroup>
     <ItemGroup>
-      <ProjectReference Include="..\AutoVersionTask\AutoVersionTask.csproj" />
+        <ProjectReference Include="..\AutoVersionTask\AutoVersionTask.csproj" />
     </ItemGroup>
     <Import Project="..\AutoVersionTask\Assets\build\AutoVersionTask.targets" />
 </Project>
