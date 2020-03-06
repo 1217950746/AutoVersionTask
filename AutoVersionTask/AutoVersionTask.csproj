@@ -7,16 +7,17 @@
         <NoPackageAnalysis>true</NoPackageAnalysis>
         <DevelopmentDependency>true</DevelopmentDependency>
         <PackageOutputPath>..\Packages</PackageOutputPath>
-        <Version>1.0.0.0</Version>
-      <Authors>ONEO</Authors>
+        <Version>1.1.0</Version>
+        <Authors>ONEO</Authors>
     </PropertyGroup>
     <ItemGroup>
+        <PackageReference Include="LibGit2Sharp" Version="0.27.0-preview-0034" />
         <PackageReference Include="Microsoft.Build.Framework" Version="16.4.0" />
         <PackageReference Include="Microsoft.Build.Utilities.Core" Version="16.4.0" />
-      <PackageReference Update="@(PackageReference)" PrivateAssets="All" />
+        <PackageReference Update="@(PackageReference)" PrivateAssets="All" />
     </ItemGroup>
     <ItemGroup>
-      <None Include="Assets\build\**" Pack="True" PackagePath="build\" />
-      <None Include="Assets\buildMultiTargeting\**" Pack="True" PackagePath="buildMultiTargeting\" />
+        <None Include="Assets\build\**" Pack="True" PackagePath="build\" />
+        <None Include="Assets\buildMultiTargeting\**" Pack="True" PackagePath="buildMultiTargeting\" />
     </ItemGroup>
 </Project>

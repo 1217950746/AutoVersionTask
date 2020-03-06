@@ -7,9 +7,8 @@
     </PropertyGroup>
 
     <UsingTask TaskName="AutoVersionTask" AssemblyFile="$(AutoVersionTaskFolder)AutoVersionTask.dll" />
-    <UsingTask TaskName="UpdateAssemblyInfoTask" AssemblyFile="$(AutoVersionTaskFolder)AutoVersionTask.dll" />
 
-    <Target Name="AutoVersionTask" BeforeTargets="CoreCompile;GetAssemblyVersion;GenerateNuspec">
+    <Target Name="AutoVersionTask" BeforeTargets="CoreCompile;GetAssemblyVersion;GenerateNuspec" Condition="$(AutoVersion) != 'false'">
         <AutoVersionTask SolutionDir="$(SolutionDir)">
             <Output TaskParameter="AutoVersion" PropertyName="AutoVersion" />
             <Output TaskParameter="AutoVersionSuffix" PropertyName="AutoVersionSuffix" />

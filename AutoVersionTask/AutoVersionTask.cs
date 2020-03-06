@@ -25,12 +25,10 @@ namespace AutoVersionTask
                 if (!Directory.Exists(SolutionDir))
                     throw new Exception($"Not Found {SolutionDir}");
 
-                var buildSha = Helper.Run(SolutionDir, "git", "rev-parse", "--short", "HEAD");
-                var buildNumber = Helper.Run(SolutionDir, "git", "rev-list", "HEAD", "--count");
-                var todayBuildNumber = Helper.Run(SolutionDir, "git", "rev-list", "HEAD", "--count", "--after", $"\"{DateTime.Now:yyyy.MM.dd} 00:00\"");
+                var commitInfo = Helper.GetCommitInfo(SolutionDir);
 
-                AutoVersion = $"{DateTime.Now:yy.M.d}.{todayBuildNumber}";
-                AutoVersionSuffix = $"{buildSha}-{buildNumber}";
+                AutoVersion = $"{commitInfo.BuildTime:yy.M.d}.{commitInfo.Number}";
+                AutoVersionSuffix = $"{commitInfo.Sha}-{commitInfo.BuildNumber}";
                 AutoFullVersion = $"{AutoVersion}-{AutoVersionSuffix}";
             }
             catch (Exception ex)

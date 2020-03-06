@@ -5,5 +5,8 @@
         <OutputType>Exe</OutputType>
         <AutoVersionDebug>true</AutoVersionDebug>
     </PropertyGroup>
-    <Import Project="..\AutoVersionTask\Assets\build\AutoVersionTask.targets"/>
+    <ItemGroup>
+      <ProjectReference Include="..\AutoVersionTask\AutoVersionTask.csproj" />
+    </ItemGroup>
+    <Import Project="..\AutoVersionTask\Assets\build\AutoVersionTask.targets" />
 </Project>

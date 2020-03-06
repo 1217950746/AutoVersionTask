@@ -1,35 +1,67 @@
 using System;
-using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using LibGit2Sharp;
 
 namespace AutoVersionTask
 {
-    static class Helper
+    public static class Helper
     {
-        public static string Run(string dir, string command, params string[] args)
+        static string FindGit(string dir)
         {
-            var process = new Process
+            while (true)
             {
-                StartInfo = new ProcessStartInfo
-                {
-                    WorkingDirectory = dir,
-                    FileName = command,
-                    Arguments = string.Join(" ", args),
-                    RedirectStandardOutput = true,
-                    RedirectStandardError = true,
-                    UseShellExecute = false,
-                    CreateNoWindow = true
-                }
-            };
-            process.Start();
-            process.WaitForExit(1000);
-            if (!process.HasExited)
-                process.Kill();
-            var output = process.StandardOutput.ReadToEnd();
-            var outputError = process.StandardError.ReadToEnd();
-            if (process.ExitCode != 0)
-                throw new Exception($"Task Error!\n{output}\n{outputError}");
+                if (string.IsNullOrWhiteSpace(dir))
+                    return string.Empty;
 
-            return output.Trim();
+                if (Directory.Exists(Path.Combine(dir, ".git")))
+                    return dir;
+
+                dir = Path.GetDirectoryName(dir);
+            }
+        }
+
+        public static CommitInfo GetCommitInfo(string dir)
+        {
+            var gitDir = FindGit(Path.GetFullPath(dir));
+            try
+            {
+                using var repository = new Repository(gitDir);
+                var buildNumber = repository.Commits.Count();
+                if (buildNumber <= 0)
+                    throw new Exception("No Commits");
+
+                var commit = repository.Commits.FirstOrDefault();
+                if (commit == null)
+                    throw new Exception("No Commit");
+
+                var commitTime = commit.Author.When.DateTime;
+                var start = new DateTimeOffset(new DateTime(commitTime.Year, commitTime.Month, commitTime.Day, 0, 0, 0));
+                var end = new DateTimeOffset(new DateTime(commitTime.Year, commitTime.Month, commitTime.Day + 1, 0, 0, 0));
+                var number = repository.Commits.Count(x => x.Author.When >= start && x.Author.When < end);
+
+                var result = new CommitInfo
+                {
+                    Sha = commit.Sha.Substring(0, 7).ToUpper(),
+                    Number = number,
+                    BuildNumber = buildNumber,
+                    BuildTime = commit.Author.When.DateTime
+                };
+
+                return result;
+            }
+            catch
+            {
+                // ignored
+            }
+
+            return new CommitInfo
+            {
+                Sha = "0000000",
+                Number = 0,
+                BuildNumber = 0,
+                BuildTime = DateTime.Now,
+            };
         }
     }
 }
