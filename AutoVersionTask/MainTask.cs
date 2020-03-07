@@ -5,7 +5,7 @@ using Microsoft.Build.Utilities;
 
 namespace AutoVersionTask
 {
-    public class AutoVersionTask : Task
+    public class MainTask : Task
     {
         [Output]
         public string AutoVersion { get; set; }

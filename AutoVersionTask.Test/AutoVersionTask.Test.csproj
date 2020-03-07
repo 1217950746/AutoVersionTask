@@ -5,7 +5,6 @@
         <OutputType>Exe</OutputType>
         <AutoVersionDebug>true</AutoVersionDebug>
         <Configurations>Debug</Configurations>
-        <Platforms>x86</Platforms>
     </PropertyGroup>
     <ItemGroup>
         <ProjectReference Include="..\AutoVersionTask\AutoVersionTask.csproj" />

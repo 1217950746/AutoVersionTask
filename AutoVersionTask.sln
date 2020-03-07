@@ -6,12 +6,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoVersionTask.Test", "Aut
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|x86 = Debug|x86
+		Debug|Any CPU = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E0713D8A-DDA5-40A3-8506-9E05E373B669}.Debug|x86.ActiveCfg = Debug|x86
-		{E0713D8A-DDA5-40A3-8506-9E05E373B669}.Debug|x86.Build.0 = Debug|x86
-		{13620ABE-5656-4B04-A10D-F9CED83F6441}.Debug|x86.ActiveCfg = Debug|x86
-		{13620ABE-5656-4B04-A10D-F9CED83F6441}.Debug|x86.Build.0 = Debug|x86
+		{E0713D8A-DDA5-40A3-8506-9E05E373B669}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0713D8A-DDA5-40A3-8506-9E05E373B669}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13620ABE-5656-4B04-A10D-F9CED83F6441}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13620ABE-5656-4B04-A10D-F9CED83F6441}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 EndGlobal

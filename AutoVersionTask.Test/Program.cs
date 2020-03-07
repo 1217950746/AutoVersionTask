@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.Reflection;
 
 namespace AutoVersionTask.Test
@@ -7,7 +8,9 @@ namespace AutoVersionTask.Test
     {
         static void Main()
         {
-            Debug.WriteLine(Assembly.GetEntryAssembly()?.GetName().Version);
+            var version = Assembly.GetEntryAssembly()?.GetName().Version;
+            Debug.WriteLine(version);
+            Console.WriteLine(version);
         }
     }
 }
