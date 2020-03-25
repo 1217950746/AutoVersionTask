@@ -7,14 +7,15 @@
         <BuildOutputTargetFolder>tasks</BuildOutputTargetFolder>
         <DevelopmentDependency>true</DevelopmentDependency>
         <PackageOutputPath>..\Packages</PackageOutputPath>
-        <Version>2.1.0</Version>
+        <Version>2.2.0</Version>
         <Authors>ONEO</Authors>
         <Configurations>Debug</Configurations>
+        <Platforms>AnyCPU</Platforms>
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="LibGit2Sharp" Version="0.27.0-preview-0034" />
-        <PackageReference Include="Microsoft.Build.Framework" Version="16.4.0" />
-        <PackageReference Include="Microsoft.Build.Utilities.Core" Version="16.4.0" />
+        <PackageReference Include="Microsoft.Build.Framework" Version="16.5.0" />
+        <PackageReference Include="Microsoft.Build.Utilities.Core" Version="16.5.0" />
 
         <PackageReference Update="@(PackageReference)" PrivateAssets="All" />
     </ItemGroup>
@@ -22,7 +23,8 @@
         <None Include="Assets\build\**" Pack="True" PackagePath="build\" />
         <None Include="Assets\buildMultiTargeting\**" Pack="True" PackagePath="buildMultiTargeting\" />
 
-        <None Include="bin\Debug\net472\LibGit2Sharp.dll" Pack="True" PackagePath="tasks\net472\" />
-        <None Include="bin\Debug\net472\lib\win32\x86\*.dll" Pack="True" PackagePath="tasks\net472\lib\win32\x86\" />
+        <None Include="bin\Debug\net472\*.dll" Pack="True" PackagePath="tasks\net472\" />
+        <None Remove="bin\Debug\net472\AutoVersionTask.dll" />
+        <None Include="bin\Debug\net472\lib\win32\**\*.dll" Pack="True" PackagePath="tasks\net472\lib\win32\" />
     </ItemGroup>
 </Project>

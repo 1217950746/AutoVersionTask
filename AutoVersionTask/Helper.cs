@@ -24,45 +24,27 @@ namespace AutoVersionTask
         public static CommitInfo GetCommitInfo(string dir)
         {
             var gitDir = FindGit(Path.GetFullPath(dir));
-            try
-            {
-                using var repository = new Repository(gitDir);
-                var buildNumber = repository.Commits.Count();
-                if (buildNumber <= 0)
-                    throw new Exception("No Commits");
 
-                var commit = repository.Commits.FirstOrDefault();
-                if (commit == null)
-                    throw new Exception("No Commit");
+            using var repository = new Repository(gitDir);
+            var buildNumber = repository.Commits.Count();
+            if (buildNumber <= 0)
+                throw new Exception("No Commits");
 
-                var commitTime = commit.Author.When.DateTime;
-                var start = new DateTimeOffset(new DateTime(commitTime.Year, commitTime.Month, commitTime.Day, 0, 0, 0));
-                var end = new DateTimeOffset(new DateTime(commitTime.Year, commitTime.Month, commitTime.Day + 1, 0, 0, 0));
-                var number = repository.Commits.Count(x => x.Author.When >= start && x.Author.When < end);
+            var commit = repository.Commits.FirstOrDefault();
+            if (commit == null)
+                throw new Exception("No Commit");
 
-                var result = new CommitInfo
-                {
-                    Sha = commit.Sha.Substring(0, 7).ToUpper(),
-                    Number = number,
-                    BuildNumber = buildNumber,
-                    BuildTime = commit.Author.When.DateTime
-                };
-
-                return result;
-            }
-            catch
-            {
-                // ignored
-            }
-
-            var buildTime = DateTime.Now;
+            var commitTime = commit.Author.When.DateTime;
+            var start = new DateTimeOffset(new DateTime(commitTime.Year, commitTime.Month, commitTime.Day, 0, 0, 0));
+            var end = new DateTimeOffset(new DateTime(commitTime.Year, commitTime.Month, commitTime.Day + 1, 0, 0, 0));
+            var number = repository.Commits.Count(x => x.Author.When >= start && x.Author.When < end);
 
             return new CommitInfo
             {
-                Sha = Guid.NewGuid().ToString("N").Substring(0, 7).ToUpper(),
-                Number = buildTime.Minute,
-                BuildNumber = buildTime.Minute,
-                BuildTime = buildTime,
+                Sha = commit.Sha.Substring(0, 7).ToUpper(),
+                Number = number,
+                BuildNumber = buildNumber,
+                BuildTime = commit.Author.When.DateTime
             };
         }
     }

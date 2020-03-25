@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Reflection;
 
 namespace AutoVersionTask.Test
 {
@@ -8,7 +7,8 @@ namespace AutoVersionTask.Test
     {
         static void Main()
         {
-            var version = Assembly.GetEntryAssembly()?.GetName().Version;
+            var commitInfo = Helper.GetCommitInfo(".");
+            var version = $"{commitInfo.BuildTime:yy.M.d}.{commitInfo.Number}-{commitInfo.Sha}-{commitInfo.BuildNumber}";
             Debug.WriteLine(version);
             Console.WriteLine(version);
         }
