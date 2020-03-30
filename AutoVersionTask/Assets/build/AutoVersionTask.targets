@@ -1,14 +1,11 @@
 <Project>
     <PropertyGroup>
-        <AutoVersionTaskFolder>$(MSBuildThisFileDirectory)..\tasks\net472\</AutoVersionTaskFolder>
-    </PropertyGroup>
-    <PropertyGroup Condition="$(AutoVersionDebug) == 'true'">
-        <AutoVersionTaskFolder>..\..\bin\Debug\net472\</AutoVersionTaskFolder>
+        <AutoVersionTaskFolder>$(MSBuildThisFileDirectory)..\tasks\net48\</AutoVersionTaskFolder>
     </PropertyGroup>
 
     <UsingTask TaskName="MainTask" AssemblyFile="$(AutoVersionTaskFolder)AutoVersionTask.dll" />
 
-    <Target Name="MainTaskTarget" BeforeTargets="CoreCompile" Condition="$(Version) == '1.0.0'">
+    <Target Name="MainTaskTarget" BeforeTargets="CoreCompile;GetAssemblyVersion;GenerateNuspec">
         <MainTask SolutionDir="$(ProjectDir)">
             <Output TaskParameter="AutoVersion" PropertyName="AutoVersion" />
             <Output TaskParameter="AutoVersionSuffix" PropertyName="AutoVersionSuffix" />
