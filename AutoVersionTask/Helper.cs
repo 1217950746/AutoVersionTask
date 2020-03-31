@@ -35,8 +35,10 @@ namespace AutoVersionTask
                 throw new Exception("No Commit");
 
             var commitTime = commit.Author.When.DateTime;
-            var start = new DateTimeOffset(new DateTime(commitTime.Year, commitTime.Month, commitTime.Day, 0, 0, 0));
-            var end = new DateTimeOffset(new DateTime(commitTime.Year, commitTime.Month, commitTime.Day + 1, 0, 0, 0));
+            var startDate = new DateTime(commitTime.Year, commitTime.Month, commitTime.Day, 0, 0, 0);
+            var endDate = startDate.AddDays(1);
+            var start = new DateTimeOffset(startDate);
+            var end = new DateTimeOffset(endDate);
             var number = repository.Commits.Count(x => x.Author.When >= start && x.Author.When < end);
 
             return new CommitInfo

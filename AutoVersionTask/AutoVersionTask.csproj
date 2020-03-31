@@ -7,7 +7,7 @@
         <BuildOutputTargetFolder>tasks</BuildOutputTargetFolder>
         <DevelopmentDependency>true</DevelopmentDependency>
         <PackageOutputPath>..\Packages</PackageOutputPath>
-        <Version>3.1.0</Version>
+        <Version>3.2.0</Version>
         <Authors>ONEO</Authors>
         <Configurations>Debug</Configurations>
         <Platforms>x64</Platforms>
@@ -24,7 +24,7 @@
         <None Include="Assets\build\**" Pack="True" PackagePath="build\" />
         <None Include="Assets\buildMultiTargeting\**" Pack="True" PackagePath="buildMultiTargeting\" />
 
-        <None Include="bin\Debug\net48\LibGit2Sharp.dll" Pack="True" PackagePath="tasks\net48" />
-        <None Include="bin\Debug\net48\lib\win32\x64\*.dll" Pack="True" PackagePath="tasks\net48" />
+        <None Include="bin\x64\Debug\net48\LibGit2Sharp.dll" Pack="True" PackagePath="tasks\net48" />
+        <None Include="bin\x64\Debug\net48\lib\win32\x64\*.dll" Pack="True" PackagePath="tasks\net48" />
     </ItemGroup>
 </Project>
