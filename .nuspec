@@ -1,0 +1,21 @@
+<package>
+    <metadata>
+        <id>AutoVersionTask</id>
+        <version>3.3.0</version>
+        <authors>ONEO</authors>
+        <developmentDependency>true</developmentDependency>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>AutoVersionTask</description>
+    </metadata>
+    <files>
+        <file src="Assets\" />
+
+        <file src="bin\x64\AutoVersionTask.dll" target="tasks\x64" />
+        <file src="bin\x64\LibGit2Sharp.dll" target="tasks\x64" />
+        <file src="bin\x64\git*.dll" target="tasks\x64" />
+
+        <file src="bin\x86\AutoVersionTask.dll" target="tasks\x86" />
+        <file src="bin\x86\LibGit2Sharp.dll" target="tasks\x86" />
+        <file src="bin\x86\git*.dll" target="tasks\x86" />
+    </files>
+</package>

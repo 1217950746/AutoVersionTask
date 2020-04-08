@@ -11,12 +11,17 @@ EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Debug|x64 = Debug|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E0713D8A-DDA5-40A3-8506-9E05E373B669}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E0713D8A-DDA5-40A3-8506-9E05E373B669}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CBF7625C-5E27-4C4B-BC34-1AE6AF6CBBED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CBF7625C-5E27-4C4B-BC34-1AE6AF6CBBED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0713D8A-DDA5-40A3-8506-9E05E373B669}.Debug|x86.ActiveCfg = Debug|x86
+		{E0713D8A-DDA5-40A3-8506-9E05E373B669}.Debug|x86.Build.0 = Debug|x86
+		{E0713D8A-DDA5-40A3-8506-9E05E373B669}.Debug|x64.ActiveCfg = Debug|x64
+		{E0713D8A-DDA5-40A3-8506-9E05E373B669}.Debug|x64.Build.0 = Debug|x64
+		{CBF7625C-5E27-4C4B-BC34-1AE6AF6CBBED}.Debug|x86.ActiveCfg = Debug|x86
+		{CBF7625C-5E27-4C4B-BC34-1AE6AF6CBBED}.Debug|x86.Build.0 = Debug|x86
+		{CBF7625C-5E27-4C4B-BC34-1AE6AF6CBBED}.Debug|x64.ActiveCfg = Debug|x64
+		{CBF7625C-5E27-4C4B-BC34-1AE6AF6CBBED}.Debug|x64.Build.0 = Debug|x64
 	EndGlobalSection
 EndGlobal
