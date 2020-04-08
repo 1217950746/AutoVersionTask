@@ -1,0 +1,7 @@
+<Project>
+    <PropertyGroup>
+        <TargetFramework>net48</TargetFramework>
+        <LangVersion>latest</LangVersion>
+        <OutDir>$(SolutionDir)\bin</OutDir>
+    </PropertyGroup>
+</Project>

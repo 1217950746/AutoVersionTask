@@ -1,30 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-    <PropertyGroup>
-        <TargetFramework>net48</TargetFramework>
-        <LangVersion>latest</LangVersion>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <NoPackageAnalysis>true</NoPackageAnalysis>
-        <BuildOutputTargetFolder>tasks</BuildOutputTargetFolder>
-        <DevelopmentDependency>true</DevelopmentDependency>
-        <PackageOutputPath>..\Packages</PackageOutputPath>
-        <Version>3.2.0</Version>
-        <Authors>ONEO</Authors>
-        <Configurations>Debug</Configurations>
-        <Platforms>x64</Platforms>
-        <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-    </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="LibGit2Sharp" Version="0.27.0-preview-0034" />
         <PackageReference Include="Microsoft.Build.Framework" Version="16.5.0" />
         <PackageReference Include="Microsoft.Build.Utilities.Core" Version="16.5.0" />
-
-        <PackageReference Update="@(PackageReference)" PrivateAssets="All" />
-    </ItemGroup>
-    <ItemGroup>
-        <None Include="Assets\build\**" Pack="True" PackagePath="build\" />
-        <None Include="Assets\buildMultiTargeting\**" Pack="True" PackagePath="buildMultiTargeting\" />
-
-        <None Include="bin\x64\Debug\net48\LibGit2Sharp.dll" Pack="True" PackagePath="tasks\net48" />
-        <None Include="bin\x64\Debug\net48\lib\win32\x64\*.dll" Pack="True" PackagePath="tasks\net48" />
     </ItemGroup>
 </Project>
