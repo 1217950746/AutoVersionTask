@@ -7,25 +7,13 @@ namespace AutoVersionTask
 {
     public static class Helper
     {
-        static string FindGit(string dir)
-        {
-            while (true)
-            {
-                if (string.IsNullOrWhiteSpace(dir))
-                    return string.Empty;
-
-                if (Directory.Exists(Path.Combine(dir, ".git")))
-                    return dir;
-
-                dir = Path.GetDirectoryName(dir);
-            }
-        }
-
         public static CommitInfo GetCommitInfo(string dir)
         {
-            var gitDir = FindGit(Path.GetFullPath(dir));
+            var discover = Repository.Discover(dir);
+            if (Directory.Exists(discover))
+                throw new Exception("No Repository");
 
-            using var repository = new Repository(gitDir);
+            using var repository = new Repository(discover);
             var buildNumber = repository.Commits.Count();
             if (buildNumber <= 0)
                 throw new Exception("No Commits");
