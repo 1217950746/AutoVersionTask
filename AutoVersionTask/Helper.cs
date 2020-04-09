@@ -10,7 +10,7 @@ namespace AutoVersionTask
         public static CommitInfo GetCommitInfo(string dir)
         {
             var discover = Repository.Discover(dir);
-            if (Directory.Exists(discover))
+            if (!Directory.Exists(discover))
                 throw new Exception("No Repository");
 
             using var repository = new Repository(discover);
