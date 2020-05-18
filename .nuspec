@@ -1,8 +1,8 @@
 <package>
     <metadata>
         <id>AutoVersionTask</id>
-        <version>3.6.0</version>
         <authors>ONEO</authors>
+        <version>0.0.0.0</version>
         <developmentDependency>true</developmentDependency>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>AutoVersionTask</description>

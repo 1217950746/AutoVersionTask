@@ -1,9 +1,0 @@
-<Project>
-    <PropertyGroup>
-        <TargetFramework>net48</TargetFramework>
-        <LangVersion>latest</LangVersion>
-        <Configurations>Debug</Configurations>
-        <Platforms>x86;x64</Platforms>
-        <OutDir>$(SolutionDir)\bin\$(Platform)</OutDir>
-    </PropertyGroup>
-</Project>

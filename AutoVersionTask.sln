@@ -2,13 +2,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoVersionTask", "AutoVersionTask\AutoVersionTask.csproj", "{E0713D8A-DDA5-40A3-8506-9E05E373B669}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoVersionTask.Test", "AutoVersionTask.Test\AutoVersionTask.Test.csproj", "{CBF7625C-5E27-4C4B-BC34-1AE6AF6CBBED}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_", "_", "{4E79E962-4BB1-4340-A6CE-7D48DA065A73}"
-ProjectSection(SolutionItems) = preProject
-	Directory.Build.props = Directory.Build.props
-EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -19,9 +12,5 @@ Global
 		{E0713D8A-DDA5-40A3-8506-9E05E373B669}.Debug|x86.Build.0 = Debug|x86
 		{E0713D8A-DDA5-40A3-8506-9E05E373B669}.Debug|x64.ActiveCfg = Debug|x64
 		{E0713D8A-DDA5-40A3-8506-9E05E373B669}.Debug|x64.Build.0 = Debug|x64
-		{CBF7625C-5E27-4C4B-BC34-1AE6AF6CBBED}.Debug|x86.ActiveCfg = Debug|x86
-		{CBF7625C-5E27-4C4B-BC34-1AE6AF6CBBED}.Debug|x86.Build.0 = Debug|x86
-		{CBF7625C-5E27-4C4B-BC34-1AE6AF6CBBED}.Debug|x64.ActiveCfg = Debug|x64
-		{CBF7625C-5E27-4C4B-BC34-1AE6AF6CBBED}.Debug|x64.Build.0 = Debug|x64
 	EndGlobalSection
 EndGlobal
