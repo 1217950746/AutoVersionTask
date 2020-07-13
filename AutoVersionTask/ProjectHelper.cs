@@ -5,22 +5,37 @@ using LibGit2Sharp;
 
 namespace AutoVersionTask
 {
-    public static class Helper
+    public static class ProjectHelper
     {
-        public static CommitInfo GetCommitInfo(string dir)
+        static bool isGitInit;
+
+        public static ProjectInfo GetInfo(string taskDir, string projectDir)
         {
-            var discover = Repository.Discover(dir);
+            if (!isGitInit)
+            {
+                isGitInit = true;
+
+                if (Platform.IsNet())
+                    GlobalSettings.NativeLibraryPath = Path.Combine(taskDir, "lib", "win32");
+                else
+                    GlobalSettings.NativeLibraryPath = Path.Combine(taskDir, "lib", "win32", Platform.Is64() ? "x64" : "x86");
+            }
+
+            if (string.IsNullOrWhiteSpace(projectDir))
+                return new ProjectInfo();
+
+            var discover = Repository.Discover(projectDir);
             if (!Directory.Exists(discover))
-                throw new Exception("No Repository");
+                return new ProjectInfo();
 
             using var repository = new Repository(discover);
             var buildNumber = repository.Commits.Count();
             if (buildNumber <= 0)
-                throw new Exception("No Commits");
+                return new ProjectInfo();
 
             var commit = repository.Commits.FirstOrDefault();
             if (commit == null)
-                throw new Exception("No Commit");
+                return new ProjectInfo();
 
             var commitTime = commit.Author.When.DateTime;
             var startDate = new DateTime(commitTime.Year, commitTime.Month, commitTime.Day, 0, 0, 0);
@@ -29,7 +44,7 @@ namespace AutoVersionTask
             var end = new DateTimeOffset(endDate);
             var number = repository.Commits.Count(x => x.Author.When >= start && x.Author.When < end);
 
-            return new CommitInfo
+            return new ProjectInfo
             {
                 Sha = commit.Sha.Substring(0, 7).ToUpper(),
                 Number = number,

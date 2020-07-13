@@ -1,15 +1,28 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>net472</TargetFramework>
+        <TargetFramework>netstandard2.0</TargetFramework>
         <LangVersion>latest</LangVersion>
-        <Configurations>Debug</Configurations>
-        <Platforms>x86;x64</Platforms>
-        <Version>3.6.0</Version>
-        <OutDir>$(SolutionDir)\bin\$(Platform)</OutDir>
+        <Version>4.0.0</Version>
+        <Description>AutoVersionTask</Description>
+        <Authors>ONEO</Authors>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <OutDir>$(SolutionDir)bin\$(Configuration)</OutDir>
+        <PackageOutputPath>$(SolutionDir)Packages</PackageOutputPath>
+        <BuildOutputTargetFolder>tasks</BuildOutputTargetFolder>
+        <DevelopmentDependency>true</DevelopmentDependency>
+        <NoPackageAnalysis>true</NoPackageAnalysis>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+        <Version>0.0.8</Version>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="LibGit2Sharp" Version="0.27.0-preview-0034" />
-        <PackageReference Include="Microsoft.Build.Framework" Version="16.5.0" />
-        <PackageReference Include="Microsoft.Build.Utilities.Core" Version="16.5.0" />
+        <None Include="Assets\**" Pack="True" PackagePath="\" />
+        <None Include="$(SolutionDir)bin\$(Configuration)\LibGit2Sharp.dll" Pack="True" PackagePath="\tasks\$(TargetFramework)\" />
+        <None Include="$(SolutionDir)bin\$(Configuration)\lib\win32\**\*.dll" Pack="True" PackagePath="\tasks\$(TargetFramework)\lib\win32\" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="LibGit2Sharp" Version="0.26.2" PrivateAssets="All" />
+        <PackageReference Include="Microsoft.Build.Framework" Version="16.6.0" PrivateAssets="All" />
+        <PackageReference Include="Microsoft.Build.Utilities.Core" Version="16.6.0" PrivateAssets="All" />
     </ItemGroup>
 </Project>

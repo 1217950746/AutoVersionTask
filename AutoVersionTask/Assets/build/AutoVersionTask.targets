@@ -1,13 +1,12 @@
 <Project>
     <PropertyGroup>
-        <AutoVersionTaskFolder Condition="'$(MSBuildRuntimeType)' == 'Core'">$(MSBuildThisFileDirectory)..\tasks\x64\</AutoVersionTaskFolder>
-        <AutoVersionTaskFolder Condition="'$(MSBuildRuntimeType)' != 'Core'">$(MSBuildThisFileDirectory)..\tasks\x86\</AutoVersionTaskFolder>
+        <AutoVersionTaskFolder>$(MSBuildThisFileDirectory)..\tasks\netstandard2.0\</AutoVersionTaskFolder>
     </PropertyGroup>
 
     <UsingTask TaskName="MainTask" AssemblyFile="$(AutoVersionTaskFolder)AutoVersionTask.dll" />
 
     <Target Name="MainTaskTarget" BeforeTargets="CoreCompile;GetAssemblyVersion;GenerateNuspec" Condition="$(Version) == '1.0.0'">
-        <MainTask SolutionDir="$(ProjectDir)">
+        <MainTask TaskDir="$(AutoVersionTaskFolder)" ProjectDir="$(ProjectDir)">
             <Output TaskParameter="AutoVersion" PropertyName="AutoVersion" />
             <Output TaskParameter="AutoVersionSuffix" PropertyName="AutoVersionSuffix" />
             <Output TaskParameter="AutoFullVersion" PropertyName="AutoFullVersion" />

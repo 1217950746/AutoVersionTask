@@ -2,15 +2,21 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoVersionTask", "AutoVersionTask\AutoVersionTask.csproj", "{E0713D8A-DDA5-40A3-8506-9E05E373B669}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoVersion", "AutoVersion\AutoVersion.csproj", "{679C3FF7-B362-4285-9CAB-88BA0F985C60}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|x86 = Debug|x86
-		Debug|x64 = Debug|x64
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E0713D8A-DDA5-40A3-8506-9E05E373B669}.Debug|x86.ActiveCfg = Debug|x86
-		{E0713D8A-DDA5-40A3-8506-9E05E373B669}.Debug|x86.Build.0 = Debug|x86
-		{E0713D8A-DDA5-40A3-8506-9E05E373B669}.Debug|x64.ActiveCfg = Debug|x64
-		{E0713D8A-DDA5-40A3-8506-9E05E373B669}.Debug|x64.Build.0 = Debug|x64
+		{679C3FF7-B362-4285-9CAB-88BA0F985C60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{679C3FF7-B362-4285-9CAB-88BA0F985C60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{679C3FF7-B362-4285-9CAB-88BA0F985C60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{679C3FF7-B362-4285-9CAB-88BA0F985C60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0713D8A-DDA5-40A3-8506-9E05E373B669}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0713D8A-DDA5-40A3-8506-9E05E373B669}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0713D8A-DDA5-40A3-8506-9E05E373B669}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0713D8A-DDA5-40A3-8506-9E05E373B669}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

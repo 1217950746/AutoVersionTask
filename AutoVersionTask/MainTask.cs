@@ -16,16 +16,14 @@ namespace AutoVersionTask
         [Output]
         public string AutoFullVersion { get; set; }
 
-        public string SolutionDir { get; set; }
+        public string TaskDir { get; set; }
+        public string ProjectDir { get; set; }
 
         public override bool Execute()
         {
             try
             {
-                if (!Directory.Exists(SolutionDir))
-                    throw new Exception($"Not Found {SolutionDir}");
-
-                var commitInfo = Helper.GetCommitInfo(SolutionDir);
+                var commitInfo = ProjectHelper.GetInfo(Path.GetFullPath(TaskDir), Path.GetFullPath(ProjectDir));
 
                 AutoVersion = $"{commitInfo.BuildTime:yy.M.d}.{commitInfo.Number}";
                 AutoVersionSuffix = $"{commitInfo.Sha}-{commitInfo.BuildNumber}";
