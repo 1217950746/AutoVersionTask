@@ -23,7 +23,9 @@ namespace AutoVersionTask
         {
             try
             {
-                var commitInfo = ProjectHelper.GetInfo(Path.GetFullPath(TaskDir), Path.GetFullPath(ProjectDir));
+                var taskDirFull = Path.GetFullPath(TaskDir);
+                var projectDirFull = Path.GetFullPath(ProjectDir);
+                var commitInfo = ProjectHelper.GetInfo(taskDirFull, projectDirFull);
 
                 AutoVersion = $"{commitInfo.BuildTime:yy.M.d}.{commitInfo.Number}";
                 AutoVersionSuffix = $"{commitInfo.Sha}-{commitInfo.BuildNumber}";

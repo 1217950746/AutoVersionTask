@@ -1,11 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>net48</TargetFramework>
+        <TargetFrameworks>net461;net48;netcoreapp3.1</TargetFrameworks>
         <LangVersion>latest</LangVersion>
         <OutputType>Exe</OutputType>
-        <OutDir>$(SolutionDir)bin\$(Configuration)</OutDir>
+        <OutDir>$(SolutionDir)bin\$(Configuration)\Test\$(TargetFramework)</OutDir>
+        <PackageOutputPath>$(SolutionDir)bin\$(Configuration)\Test</PackageOutputPath>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <AutoVersionTaskDebug>True</AutoVersionTaskDebug>
     </PropertyGroup>
-    <ItemGroup>
-        <PackageReference Include="LibGit2Sharp" Version="0.26.2" />
-    </ItemGroup>
+    <Import Project="..\AutoVersionTask\Assets\build\AutoVersionTask.targets" />
 </Project>
