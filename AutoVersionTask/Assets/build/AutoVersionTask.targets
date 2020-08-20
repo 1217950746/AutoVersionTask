@@ -7,7 +7,7 @@
     <UsingTask TaskName="MainTask" AssemblyFile="$(AutoVersionTaskFolder)AutoVersionTask.dll" />
 
     <Target Name="MainTaskTarget" BeforeTargets="CoreCompile;GetAssemblyVersion;GenerateNuspec" Condition=" '$(Version)' == '1.0.0' ">
-        <MainTask TaskDir="$(AutoVersionTaskFolder)" ProjectDir="$(ProjectDir)">
+        <MainTask TaskDir="$(AutoVersionTaskFolder)" ProjectDir="$(MSBuildProjectDirectory)">
             <Output TaskParameter="AutoVersion" PropertyName="AutoVersion" />
             <Output TaskParameter="AutoVersionSuffix" PropertyName="AutoVersionSuffix" />
             <Output TaskParameter="AutoFullVersion" PropertyName="AutoFullVersion" />
