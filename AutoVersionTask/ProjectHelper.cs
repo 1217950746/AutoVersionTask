@@ -43,14 +43,35 @@ namespace AutoVersionTask
             var start = new DateTimeOffset(startDate);
             var end = new DateTimeOffset(endDate);
             var number = repository.Commits.Count(x => x.Author.When >= start && x.Author.When < end);
+            var buildTime = commit.Author.When.DateTime;
 
+            var newChange = repository.RetrieveStatus(new StatusOptions
+            {
+                IncludeIgnored = false,
+                IncludeUnaltered = false,
+                IncludeUntracked = false
+            }).Any();
+
+            if (!newChange)
+                return new ProjectInfo
+                {
+                    Number = number,
+                    BuildNumber = buildNumber,
+                    BuildTime = buildTime
+                };
+
+            var now = DateTime.Now;
             return new ProjectInfo
             {
-                Sha = commit.Sha.Substring(0, 7).ToUpper(),
-                Number = number,
-                BuildNumber = buildNumber,
-                BuildTime = commit.Author.When.DateTime
+                Number = IsToday(buildTime, now) ? number + 1 : 1,
+                BuildNumber = buildNumber + 1,
+                BuildTime = now
             };
+        }
+
+        static bool IsToday(DateTime d1, DateTime d2)
+        {
+            return d1.Year == d2.Year && d1.Month == d2.Month && d1.Day == d2.Day;
         }
     }
 }

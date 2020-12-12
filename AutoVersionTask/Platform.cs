@@ -4,9 +4,9 @@ namespace AutoVersionTask
 {
     static class Platform
     {
-        public static bool IsNetCore()
+        public static bool Is64()
         {
-            return !IsNet();
+            return IntPtr.Size == 8;
         }
 
         public static bool IsNet()
@@ -14,9 +14,9 @@ namespace AutoVersionTask
             return typeof(object).Assembly.GetName().Name == "mscorlib";
         }
 
-        public static bool Is64()
+        public static bool IsNetCore()
         {
-            return IntPtr.Size == 8;
+            return !IsNet();
         }
     }
 }

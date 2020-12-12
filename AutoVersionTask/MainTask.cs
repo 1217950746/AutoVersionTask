@@ -11,13 +11,14 @@ namespace AutoVersionTask
         public string AutoVersion { get; set; }
 
         [Output]
-        public string AutoVersionSuffix { get; set; }
+        public string AutoVersionPrefix { get; set; }
 
         [Output]
-        public string AutoFullVersion { get; set; }
+        public string AutoVersionSuffix { get; set; }
+
+        public string ProjectDir { get; set; }
 
         public string TaskDir { get; set; }
-        public string ProjectDir { get; set; }
 
         public override bool Execute()
         {
@@ -25,11 +26,11 @@ namespace AutoVersionTask
             {
                 var taskDirFull = Path.GetFullPath(TaskDir);
                 var projectDirFull = Path.GetFullPath(ProjectDir);
-                var commitInfo = ProjectHelper.GetInfo(taskDirFull, projectDirFull);
+                var projectInfo = ProjectHelper.GetInfo(taskDirFull, projectDirFull);
 
-                AutoVersion = $"{commitInfo.BuildTime:yy.M.d}.{commitInfo.Number}";
-                AutoVersionSuffix = $"{commitInfo.Sha}-{commitInfo.BuildNumber}";
-                AutoFullVersion = $"{AutoVersion}-{AutoVersionSuffix}";
+                AutoVersionPrefix = projectInfo.VersionPrefix;
+                AutoVersionSuffix = projectInfo.VersionSuffix;
+                AutoVersion = projectInfo.Version;
             }
             catch (Exception ex)
             {

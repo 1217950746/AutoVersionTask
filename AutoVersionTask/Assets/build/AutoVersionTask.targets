@@ -9,12 +9,12 @@
     <Target Name="MainTaskTarget" BeforeTargets="CoreCompile;GetAssemblyVersion;GenerateNuspec" Condition=" '$(Version)' == '1.0.0' ">
         <MainTask TaskDir="$(AutoVersionTaskFolder)" ProjectDir="$(MSBuildProjectDirectory)">
             <Output TaskParameter="AutoVersion" PropertyName="AutoVersion" />
+            <Output TaskParameter="AutoVersionPrefix" PropertyName="AutoVersionPrefix" />
             <Output TaskParameter="AutoVersionSuffix" PropertyName="AutoVersionSuffix" />
-            <Output TaskParameter="AutoFullVersion" PropertyName="AutoFullVersion" />
         </MainTask>
         <PropertyGroup>
-            <Version>$(AutoFullVersion)</Version>
-            <VersionPrefix>$(AutoVersion)</VersionPrefix>
+            <Version>$(AutoVersion)</Version>
+            <VersionPrefix>$(AutoVersionPrefix)</VersionPrefix>
             <VersionSuffix>$(AutoVersionSuffix)</VersionSuffix>
             <PackageVersion>$(AutoVersion)</PackageVersion>
         </PropertyGroup>
