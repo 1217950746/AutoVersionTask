@@ -20,7 +20,7 @@ namespace AutoVersionTask
 
         public string VersionSuffix
         {
-            get => $"{BuildNumber}";
+            get => $"R{BuildNumber}";
         }
     }
 }
