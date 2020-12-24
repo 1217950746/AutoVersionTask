@@ -56,7 +56,6 @@ namespace AutoVersionTask
                 return new ProjectInfo
                 {
                     Number = number,
-                    BuildNumber = buildNumber,
                     BuildTime = buildTime
                 };
 
@@ -64,7 +63,6 @@ namespace AutoVersionTask
             return new ProjectInfo
             {
                 Number = IsToday(buildTime, now) ? number + 1 : 1,
-                BuildNumber = buildNumber + 1,
                 BuildTime = now
             };
         }

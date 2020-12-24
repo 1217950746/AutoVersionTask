@@ -2,7 +2,7 @@
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
         <LangVersion>latest</LangVersion>
-        <Version>2020.12.12.3</Version>
+        <Version>2020.12.24.1</Version>
         <Description>AutoVersionTask</Description>
         <Authors>ONEO</Authors>
         <OutDir>$(SolutionDir)bin\$(Configuration)</OutDir>
