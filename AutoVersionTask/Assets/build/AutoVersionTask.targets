@@ -12,6 +12,7 @@
         </MainTask>
         <PropertyGroup>
             <Version>$(AutoVersion)</Version>
+            <PackageVersion>$(AutoVersion)</PackageVersion>
         </PropertyGroup>
     </Target>
 </Project>
