@@ -1,5 +1,4 @@
 using System;
-using System.IO;
 using Microsoft.Build.Framework;
 using Microsoft.Build.Utilities;
 
@@ -10,18 +9,11 @@ namespace AutoVersionTask
         [Output]
         public string AutoVersion { get; set; }
 
-        public string ProjectDir { get; set; }
-
-        public string TaskDir { get; set; }
-
         public override bool Execute()
         {
             try
             {
-                var taskDirFull = Path.GetFullPath(TaskDir);
-                var projectDirFull = Path.GetFullPath(ProjectDir);
-                var projectInfo = ProjectHelper.GetInfo(taskDirFull, projectDirFull);
-                AutoVersion = projectInfo.Version;
+                AutoVersion = VersionHelper.GetVersion();
             }
             catch (Exception ex)
             {

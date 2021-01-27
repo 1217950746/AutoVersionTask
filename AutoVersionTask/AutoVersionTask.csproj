@@ -2,7 +2,7 @@
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
         <LangVersion>latest</LangVersion>
-        <Version>2021.1.19.1</Version>
+        <Version>2021.1.27.1826</Version>
         <Description>AutoVersionTask</Description>
         <Authors>ONEO</Authors>
         <OutDir>$(SolutionDir)bin\$(Configuration)</OutDir>
@@ -19,17 +19,8 @@
             <Pack>True</Pack>
             <PackagePath>\</PackagePath>
         </None>
-        <None Include="$(SolutionDir)bin\$(Configuration)\LibGit2Sharp.dll">
-            <Pack>True</Pack>
-            <PackagePath>\tasks\$(TargetFramework)\</PackagePath>
-        </None>
-        <None Include="$(SolutionDir)bin\$(Configuration)\lib\win32\**\*.dll">
-            <Pack>True</Pack>
-            <PackagePath>\tasks\$(TargetFramework)\lib\win32\</PackagePath>
-        </None>
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="LibGit2Sharp" Version="0.26.2" PrivateAssets="All" />
         <PackageReference Include="Microsoft.Build.Framework" Version="16.8.0" PrivateAssets="All" />
         <PackageReference Include="Microsoft.Build.Utilities.Core" Version="16.8.0" PrivateAssets="All" />
     </ItemGroup>

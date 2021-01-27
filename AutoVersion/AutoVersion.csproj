@@ -6,9 +6,6 @@
         <OutDir>$(SolutionDir)bin\$(Configuration)</OutDir>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="LibGit2Sharp" Version="0.26.2" />
-    </ItemGroup>
-    <ItemGroup>
         <ProjectReference Include="..\AutoVersionTask\AutoVersionTask.csproj" />
     </ItemGroup>
 </Project>
