@@ -7,35 +7,34 @@ namespace AutoVersionTask
 {
     public static class ProjectHelper
     {
-        static bool isGitInit;
-
         public static ProjectInfo GetInfo(string taskDir, string projectDir)
         {
-            if (!isGitInit)
+            if (string.IsNullOrWhiteSpace(projectDir))
             {
-                isGitInit = true;
-
-                if (Platform.IsNet())
-                    GlobalSettings.NativeLibraryPath = Path.Combine(taskDir, "lib", "win32");
-                else
-                    GlobalSettings.NativeLibraryPath = Path.Combine(taskDir, "lib", "win32", Platform.Is64() ? "x64" : "x86");
+                return new ProjectInfo();
             }
 
-            if (string.IsNullOrWhiteSpace(projectDir))
-                return new ProjectInfo();
-
             var discover = Repository.Discover(projectDir);
+
             if (!Directory.Exists(discover))
+            {
                 return new ProjectInfo();
+            }
 
             using var repository = new Repository(discover);
             var buildNumber = repository.Commits.Count();
+
             if (buildNumber <= 0)
+            {
                 return new ProjectInfo();
+            }
 
             var commit = repository.Commits.FirstOrDefault();
+
             if (commit == null)
+            {
                 return new ProjectInfo();
+            }
 
             var commitTime = commit.Author.When.DateTime;
             var startDate = new DateTime(commitTime.Year, commitTime.Month, commitTime.Day, 0, 0, 0);
@@ -53,13 +52,16 @@ namespace AutoVersionTask
             }).Any();
 
             if (!newChange)
+            {
                 return new ProjectInfo
                 {
                     Number = number,
                     BuildTime = buildTime
                 };
+            }
 
             var now = DateTime.Now;
+
             return new ProjectInfo
             {
                 Number = IsToday(buildTime, now) ? number + 1 : 1,

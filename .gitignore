@@ -1,5 +1,9 @@
-﻿.idea
+.idea
 .vs
+.DS_Store
+
 bin
 obj
 Packages
+
+*.user

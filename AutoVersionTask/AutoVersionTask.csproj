@@ -27,10 +27,14 @@
             <Pack>True</Pack>
             <PackagePath>\tasks\$(TargetFramework)\lib\win32\</PackagePath>
         </None>
+        <None Include="$(SolutionDir)bin\$(Configuration)\runtimes\osx\**">
+            <Pack>True</Pack>
+            <PackagePath>\tasks\$(TargetFramework)\runtimes\osx\</PackagePath>
+        </None>
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="LibGit2Sharp" Version="0.26.2" PrivateAssets="All" />
-        <PackageReference Include="Microsoft.Build.Framework" Version="16.8.0" PrivateAssets="All" />
-        <PackageReference Include="Microsoft.Build.Utilities.Core" Version="16.8.0" PrivateAssets="All" />
+        <PackageReference Include="Microsoft.Build.Framework" Version="16.9.0" PrivateAssets="All" />
+        <PackageReference Include="Microsoft.Build.Utilities.Core" Version="16.9.0" PrivateAssets="All" />
     </ItemGroup>
 </Project>

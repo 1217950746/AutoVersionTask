@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using AutoVersionTask;
@@ -11,7 +12,7 @@ namespace AutoVersion
         {
             var exe = Environment.GetCommandLineArgs().First();
             var dir = Path.GetDirectoryName(exe);
-            Console.WriteLine(ProjectHelper.GetInfo(dir, dir).Version);
+            Debug.WriteLine(ProjectHelper.GetInfo(dir, dir).Version);
         }
     }
 }

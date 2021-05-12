@@ -4,6 +4,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoVersionTask", "AutoVers
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoVersion", "AutoVersion\AutoVersion.csproj", "{679C3FF7-B362-4285-9CAB-88BA0F985C60}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_", "_", "{81CC192E-26A4-4FBE-B0E5-0FE1E24C5E3D}"
+ProjectSection(SolutionItems) = preProject
+	.gitignore = .gitignore
+EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NativeFile", "NativeFile\NativeFile.csproj", "{A7362C12-57C0-42DD-BF50-8AC8E940B7D7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +25,9 @@ Global
 		{E0713D8A-DDA5-40A3-8506-9E05E373B669}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E0713D8A-DDA5-40A3-8506-9E05E373B669}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E0713D8A-DDA5-40A3-8506-9E05E373B669}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7362C12-57C0-42DD-BF50-8AC8E940B7D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7362C12-57C0-42DD-BF50-8AC8E940B7D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7362C12-57C0-42DD-BF50-8AC8E940B7D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7362C12-57C0-42DD-BF50-8AC8E940B7D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

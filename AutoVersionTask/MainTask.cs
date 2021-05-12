@@ -1,10 +1,12 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using Microsoft.Build.Framework;
 using Microsoft.Build.Utilities;
 
 namespace AutoVersionTask
 {
+    [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
     public class MainTask : Task
     {
         [Output]
@@ -26,6 +28,7 @@ namespace AutoVersionTask
             catch (Exception ex)
             {
                 Log.LogError(ex.ToString());
+
                 return false;
             }
 
